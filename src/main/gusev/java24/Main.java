@@ -37,11 +37,10 @@ public class Main {
         for (int i = 0; i < columns.length; i++) {
             System.out.println(columns[i]);
         }
-        Information[] answer = fileInfo.getAnswer();
+        String[][] answer = fileInfo.getAnswer();
         for (int i = 0; i < answer.length; i++){
-            String[] temp = answer[i].getInfData();
-            for (int j = 0; j < temp.length; j++){
-                System.out.println(temp[j]);
+            for (int j = 0; j < answer[i].length; j++){
+                System.out.println(answer[i][j]);
             }
         }
     }

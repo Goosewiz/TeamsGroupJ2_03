@@ -17,7 +17,7 @@ public class InfoWrapper {
     public String[] getInfoModel() {
         return info.getColumns();
     }
-    public Information[] getAnswer(){
+    public String[][] getAnswer(){
         return info.getData();
     }
 }

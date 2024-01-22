@@ -1,13 +1,13 @@
 package main.gusev.java24;
 
 public class Information {
-    private String[] infData;
+    private Object[] infData;
 
-    public String[] getInfData() {
+    public Object[] getInfData() {
         return infData;
     }
 
-    public void setInfData(String[] infData) {
+    public void setInfData(Object[] infData) {
         this.infData = infData;
     }
 }

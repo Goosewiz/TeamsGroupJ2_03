@@ -6,7 +6,7 @@ public class Securities {
     @JsonProperty("columns")
     private String[] columns;
     @JsonProperty("data")
-    private Information[] data;
+    private String[][] data;
 
     public String[] getColumns() {
         return columns;
@@ -16,11 +16,11 @@ public class Securities {
         this.columns = columns;
     }
 
-    public Information[] getData() {
+    public String[][] getData() {
         return data;
     }
 
-    public void setData(Information[] data) {
+    public void setData(String[][] data) {
         this.data = data;
     }
    // public String[] getAnswer(){
