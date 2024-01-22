@@ -3,12 +3,21 @@ package main.gusev.java24;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class InfoWrapper {
-    @JsonProperty("columns")
-    InfoModel info;
-    public InfoModel getInfo() {
+    @JsonProperty("securities")
+    Securities info;
+
+    public Securities getInfo() {
         return info;
     }
-    public void setInfo(InfoModel info) {
+
+    public void setInfo(Securities info) {
         this.info = info;
+    }
+
+    public String[] getInfoModel() {
+        return info.getColumns();
+    }
+    public Information[] getAnswer(){
+        return info.getData();
     }
 }

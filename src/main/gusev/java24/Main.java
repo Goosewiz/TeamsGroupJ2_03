@@ -22,17 +22,27 @@ public class Main {
         System.out.println(path);
         URI uri = new URI(path);
         HttpRequest request = HttpRequest.newBuilder(uri)
-                        .build();
+                .build();
         HttpClient client = HttpClient.newBuilder()
-                        .build();
+                .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println("Status: " + response.statusCode() );
+        System.out.println("Status: " + response.statusCode());
         String body = response.body();
         System.out.println(body);
         ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule())
                 .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
         InfoWrapper fileInfo = mapper.reader(InfoWrapper.class)
                 .readValue(body);
-        System.out.println(fileInfo.getInfo());
+        String[] columns = fileInfo.getInfoModel();
+        for (int i = 0; i < columns.length; i++) {
+            System.out.println(columns[i]);
+        }
+        Information[] answer = fileInfo.getAnswer();
+        for (int i = 0; i < answer.length; i++){
+            String[] temp = answer[i].getInfData();
+            for (int j = 0; j < temp.length; j++){
+                System.out.println(temp[j]);
+            }
+        }
     }
 }
