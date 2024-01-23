@@ -64,7 +64,8 @@ public class Main {
         sb.append(search);
         sb.append(".csv");
         try (Writer writer = new FileWriter(sb.toString())){
-            StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder<CSV>(writer).build();
+            StatefulBeanToCsv beanToCsv = new StatefulBeanToCsvBuilder<CSV>(writer).withSeparator(';')
+                    .build();
             beanToCsv.write(fileCSV);
         } catch (IOException | CsvRequiredFieldEmptyException | CsvDataTypeMismatchException e) {
             System.out.println(e.getMessage());
